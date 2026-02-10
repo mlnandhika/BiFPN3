@@ -39,7 +39,7 @@ class BiFPN_Concat2(nn.Module):
         self.epsilon = 0.0001
 
     def forward(self, x):
-        w = self.w
+        w = torch.relu(self.w)
         weight = w / (torch.sum(w, dim=0) + self.epsilon)  # 将权重进行归一化
         # Fast normalized fusion
         x = [weight[0] * x[0], weight[1] * x[1]]
@@ -58,7 +58,7 @@ class BiFPN_Concat3(nn.Module):
         self.epsilon = 0.0001
 
     def forward(self, x):
-        w = self.w
+        w = torch.relu(self.w)
         weight = w / (torch.sum(w, dim=0) + self.epsilon)  # 将权重进行归一化
         # Fast normalized fusion
         x = [weight[0] * x[0], weight[1] * x[1], weight[2] * x[2]]
