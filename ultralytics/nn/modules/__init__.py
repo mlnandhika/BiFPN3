@@ -189,6 +189,7 @@ __all__ = (
     "YOLOESegment",
     "YOLOESegment26",
     "v10Detect",
+    "BiFPN_Concat",
     "BiFPN_Concat2",
     "BiFPN_Concat3",
 )

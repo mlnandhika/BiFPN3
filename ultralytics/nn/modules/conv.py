@@ -24,10 +24,33 @@ __all__ = (
     "LightConv",
     "RepConv",
     "SpatialAttention",
+    "BiFPN_Concat",
     "BiFPN_Concat2",
     "BiFPN_Concat3",
 )
 
+class BiFPN_Concat(nn.Module):
+    def __init__(self, dimension=1):
+        super(BiFPN_Concat, self).__init__()
+        self.d = dimension
+        self.epsilon = 0.0001
+        # Kita tidak menentukan jumlah 'w' di awal agar fleksibel
+        self.w = None 
+
+    def forward(self, x):
+        # Inisialisasi bobot saat forward pass pertama berdasarkan jumlah input x
+        if self.w is None:
+            self.w = nn.Parameter(torch.ones(len(x), dtype=torch.float32), requires_grad=True).to(x[0].device)
+        
+        w = torch.relu(self.w)
+        weight = w / (torch.sum(w, dim=0) + self.epsilon)
+        
+        # Gunakan list comprehension agar fleksibel untuk x[0], x[1], ... x[n]
+        out = []
+        for i in range(len(x)):
+            out.append(weight[i] * x[i])
+            
+        return torch.cat(out, self.d)
 
 # 结合BiFPN 设置可学习参数 学习不同分支的权重
 # 两个分支concat操作
