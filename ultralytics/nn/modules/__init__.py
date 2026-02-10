@@ -143,6 +143,7 @@ __all__ = (
     "ChannelAttention",
     "Classify",
     "Concat",
+    "Concat_BiFPN",
     "ContrastiveHead",
     "Conv",
     "Conv2",
@@ -187,5 +188,4 @@ __all__ = (
     "YOLOESegment",
     "YOLOESegment26",
     "v10Detect",
-    "Concat_BiFPN",
 )
