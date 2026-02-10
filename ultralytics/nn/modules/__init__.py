@@ -75,6 +75,8 @@ from .conv import (
     LightConv,
     RepConv,
     SpatialAttention,
+    BiFPN_Concat2,
+    BiFPN_Concat3,
 )
 from .head import (
     OBB,
@@ -187,5 +189,6 @@ __all__ = (
     "YOLOESegment",
     "YOLOESegment26",
     "v10Detect",
-    "Concat_BiFPN",
+    "BiFPN_Concat2",
+    "BiFPN_Concat3",
 )
