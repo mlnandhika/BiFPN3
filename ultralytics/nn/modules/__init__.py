@@ -75,6 +75,7 @@ from .conv import (
     LightConv,
     RepConv,
     SpatialAttention,
+    BiFPN_Concat,
     BiFPN_Concat2,
     BiFPN_Concat3,
 )
