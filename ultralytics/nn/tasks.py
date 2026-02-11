@@ -7,6 +7,7 @@ import types
 from copy import deepcopy
 from pathlib import Path
 from ultralytics.nn.modules.conv import BiFPN_Concat, BiFPN_Concat2, BiFPN_Concat3
+from ultralytics.nn.modules.coordatt import CoordAtt
 
 import torch
 import torch.nn as nn
@@ -73,7 +74,6 @@ from ultralytics.nn.modules import (
     YOLOESegment,
     YOLOESegment26,
     v10Detect,
-    CoordAtt,
 )
 from ultralytics.utils import DEFAULT_CFG_DICT, LOGGER, YAML, colorstr, emojis
 from ultralytics.utils.checks import check_requirements, check_suffix, check_yaml
@@ -1602,6 +1602,7 @@ def parse_model(d, ch, verbose=True):
             SCDown,
             C2fCIB,
             A2C2f,
+            CoordAtt,
         }
     )
     repeat_modules = frozenset(  # modules with 'repeat' arguments
