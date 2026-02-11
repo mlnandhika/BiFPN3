@@ -17,6 +17,8 @@ Examples:
     >>> subprocess.run(f"onnxslim {f} {f} && open {f}", shell=True, check=True)  # pip install onnxslim
 """
 
+from .coordatt import CoordAtt
+
 from .block import (
     C1,
     C2,
@@ -193,4 +195,5 @@ __all__ = (
     "BiFPN_Concat",
     "BiFPN_Concat2",
     "BiFPN_Concat3",
+    "CoorAtt,"
 )
