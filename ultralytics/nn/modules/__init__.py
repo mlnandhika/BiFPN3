@@ -62,6 +62,9 @@ from .block import (
 )
 from .conv import (
     CBAM,
+    BiFPN_Concat,
+    BiFPN_Concat2,
+    BiFPN_Concat3,
     ChannelAttention,
     Concat,
     Conv,
@@ -75,9 +78,6 @@ from .conv import (
     LightConv,
     RepConv,
     SpatialAttention,
-    BiFPN_Concat,
-    BiFPN_Concat2,
-    BiFPN_Concat3,
 )
 from .head import (
     OBB,
@@ -132,6 +132,9 @@ __all__ = (
     "ADown",
     "Attention",
     "BNContrastiveHead",
+    "BiFPN_Concat",
+    "BiFPN_Concat2",
+    "BiFPN_Concat3",
     "Bottleneck",
     "BottleneckCSP",
     "C2f",
@@ -190,7 +193,4 @@ __all__ = (
     "YOLOESegment",
     "YOLOESegment26",
     "v10Detect",
-    "BiFPN_Concat",
-    "BiFPN_Concat2",
-    "BiFPN_Concat3",
 )
